@@ -1,0 +1,52 @@
+Standar API
+
+{root.api}/{version}/{grouping}/{endpoint}
+SAMPLE:
+http://api.web-blog.com/v1/auth/login
+
+Standar Status Response
+
+200 - OK                    ==> Call API Success
+201 - CREATED               ==> POST Success
+400 - BAD REQUEST           ==> Error onCLient (Bisa input data salah dll)
+401 - UNAUTHORIZED          ==> User not authorized to the REQUEST
+403 - FORBIDDEN             ==> User not allowed to access
+500 - INTERNET SERVER ERROR ==> Error on Server Side
+502 - BAD GATEWAY           ==> Invalid Response From Another REQUEST
+
+GROUP: Authentication
+
+[1] - Register
+{root.api}/{version}/auth/register
+
+req:
+{
+    "name": "Testing",
+    "email": "test@gmail.com",
+    "password": "12345"
+}
+
+res:
+{
+    "message": "Register Succ ess",
+    "data" {
+        "id": 1,
+        "name": "Testing",
+        "email": "test@gmail.com",
+        "password": "12345"
+    }
+}
+
+err-response:
+400 - Input yang anda masukkan tidak valid
+
+[2] - Login
+{root.api}/{version}/auth/login
+
+
+GROUP: blog
+
+[1] - Create Blog Post
+[2] - Get Blog Post
+[3] - Update Blog Post
+[4] - Delete Blog Post
